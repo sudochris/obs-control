@@ -30,9 +30,6 @@ class OBSApplication {
             let port = $("#hostPort").val() || 4444;
             let password = $("#hostPassword").val() || "";
             let hostAddress = `${ip}:${port}`;
-            console.log(ip);
-            console.log(port);
-            console.log(password);
             this.obs.connect({
                 address: hostAddress,
                 password: password
@@ -63,10 +60,6 @@ class OBSApplication {
                     this.registerScene(sceneName);
                 }
                 this.highlightScene(data.currentScene);
-                
-/*                this.obs.sendCallback('GetStats', {}, (err, data) => {
-                    console.log(data);
-                }); // no return value*/
             }).catch(err => {
                 Notify.error(err.error);
             });
